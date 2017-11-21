@@ -45,4 +45,6 @@ def create_card(api_key, access_token, board_name, card_name, card_desc,
                 if card.name == card_name and card.desc == card_desc]
     if not card_dup:
         card_desc = _get_description(card_desc)
-        return new_list.add_card(card_name, card_desc, default_labels, card_due)
+        card = new_list.add_card(card_name, card_desc, default_labels, card_due)
+        card.add_checklist("Reviews", [])
+        return card
